@@ -1,17 +1,17 @@
 <form class="row g-2" [formGroup]="formValidar">
-        <nav class="navbar navbar-dark bg-primary">
+        <nav class="navbar navbar-dark bg-primary bg-opacity-75">
           <div class="container-fluid">
-            <legend class="h1-3 mb-2 bg-primary text-white">Validar correo electronico spam</legend>
+            <div class="container">
+            <h1 class="text-white"><em>Validar correo electronico spam</em></h1>
+            </div>
           </div>
         </nav>
-        
     <div class="container">
     <div class="mb-3">
-        <legend class="h1-3 mb-2 bg-primary text-white">Ingrese Email</legend>
+        <h3 class="h1-5 mb-2 bg-primary text-white bg-opacity-75"><em>Ingrese Email</em></h3>
         <textarea class="form-control" formControlName="email" id="email" rows="12"></textarea>
       </div>
       <button type="button" class="btn btn-primary btn-lg" (click)="ValidarCorreo()">Validar correo spam</button>
-        <br>
         <div *ngIf="response && response.razones">
             <li *ngFor="let item of response.razones; index as i;">{{item}}</li>
         </div>
