@@ -15,28 +15,14 @@ export class EmailValidationService {
 
     }
 
-    isSpam(email : ValidateEmailRequest) : any{     
-        let response : ValidateEmailResponse = {
-            text : "",
-            isSpam: false            
-        };
+    isSpam(email : ValidateEmailRequest) : any{  
+        debugger;
         
         let texto =  "necesito que me respondas si el siguiente mensaje es spam, la respuesta debe estar en un formato especifico, tiene que devolverme un JSON que tenga un parametro isSpam que sea verdadero si el mail es smap y falso si no lo es, luego una lista de razones, el email es:";
         texto += email.text;
         
         email.text = texto;        
-        this.chatGptSvc.getDataFromOpenAI(email.text).subscribe(data =>{
-            debugger;
-            response = this.extractJsonFromText(data);
-            
-            return response;
-        },
-        error =>{
-            response.text = "error";
-            response.error = true;
-            response.isSpam = false;
-            return response;
-        });
+        return this.chatGptSvc.getDataFromOpenAI(email.text)
     }
 
 
@@ -52,8 +38,13 @@ export class EmailValidationService {
             result.text = text;
         }
         else{
-            text = text.substring(text.indexOf("{"), text.lastIndexOf("}")+1);                
-            result = JSON.parse(text)            
+            try{
+            text = text.substring(text.indexOf("{"), text.lastIndexOf("}")+1).replaceAll("\n", "");
+
+            result = JSON.parse(text)    
+        }catch{
+            
+        }        
         }
         return result;
     }

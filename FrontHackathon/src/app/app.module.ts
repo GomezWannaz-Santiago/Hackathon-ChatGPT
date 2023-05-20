@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PasswordSegurityComponent } from './PasswordSecurity/PasswordSegurity.component';
 import { ValidarCorreoComponent } from './ValidarCorreo/ValidarCorreo.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ValidarCorreoComponent } from './ValidarCorreo/ValidarCorreo.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

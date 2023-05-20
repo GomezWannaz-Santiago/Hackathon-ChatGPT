@@ -10,7 +10,7 @@ export class ChatGptService {
   constructor() { }
 
   configuration = new Configuration({
-    apiKey: "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"
+    apiKey: "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"
   });
 
 
@@ -29,7 +29,7 @@ export class ChatGptService {
             presence_penalty: 0.6,
             stop: [' Human:', ' AI:'],
         })).pipe(
-          filter(resp => !!resp && !!resp.data),
+          filter((resp :any )=> !!resp && !!resp.data),
           map(resp => resp.data),
           filter((data: any) => data.choices && data.choices.length > 0 && data.choices[0].text),
           map(data => data.choices[0].text)

@@ -9,5 +9,5 @@ export interface ValidateEmailResponse{
     text : string;
     isSpam : boolean;
     error? : boolean;
-
+    razones? : string[];
 }
