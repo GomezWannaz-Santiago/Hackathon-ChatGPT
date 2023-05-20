@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PasswordSegurityComponent } from './PasswordSecurity/PasswordSegurity.component';
 import { ValidarCorreoComponent } from './ValidarCorreo/ValidarCorreo.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PasswordGeneratingService } from './services/password-generating.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PasswordGeneratingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

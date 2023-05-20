@@ -40,7 +40,7 @@ export class PasswordSegurityComponent implements OnInit {
       agregarSimbolos : this.form.value.agregarSimbolos,
       agregarNumeros : this.form.value.agregarNumeros
     }
-
+    debugger;
     this.securitySvc.generatePassword(request).subscribe((data : any) =>{
       if(data){
         this.response = {password : data};
