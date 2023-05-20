@@ -10,7 +10,7 @@ export class ChatGptService {
   constructor() { }
 
   configuration = new Configuration({
-    apiKey: "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"
+    apiKey: "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"
   });
 
 
