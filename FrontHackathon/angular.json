@@ -27,7 +27,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["src/assets/CHATGPT/controllers/chatGPT.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {

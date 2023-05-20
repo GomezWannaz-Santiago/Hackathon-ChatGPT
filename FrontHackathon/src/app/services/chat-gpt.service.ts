@@ -9,13 +9,15 @@ export class ChatGptService {
 
   constructor() { }
 
-  readonly configuration = new Configuration({
-    apiKey: "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"
+  configuration = new Configuration({
+    apiKey: "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"
   });
+
 
   readonly openai = new OpenAIApi(this.configuration);
 
     getDataFromOpenAI(text: string) {
+      delete this.configuration.baseOptions.headers['User-Agent'];      
         return from(this.openai.createCompletion({
             model: 'text-davinci-003',
             // Agregamos a la conversación el mesansaje en cuestión
