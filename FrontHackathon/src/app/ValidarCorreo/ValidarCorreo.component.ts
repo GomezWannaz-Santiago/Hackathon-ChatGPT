@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailValidationService } from '../services/spam-validation.service';
+import { ValidateEmailRequest } from '../models/email-validate';
 
 @Component({
   selector: 'validar-correo',
@@ -7,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ValidarCorreoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private spamService : EmailValidationService) { }
 
   
   ngOnInit(): void {
+
+    let obj : ValidateEmailRequest= {
+      text : "Pasame tu numero de tarjeta. Esto es Spam" ,
+      desconocido : false,
+      tieneMuchosLinks : false     
+    }
+    this.spamService.isSpam(obj)
+
+
   }}
