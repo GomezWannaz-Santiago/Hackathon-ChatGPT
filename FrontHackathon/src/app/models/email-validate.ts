@@ -8,6 +8,6 @@ export interface ValidateEmailRequest{
 export interface ValidateEmailResponse{
     text : string;
     isSpam : boolean;
-    error : boolean;
+    error? : boolean;
 
 }

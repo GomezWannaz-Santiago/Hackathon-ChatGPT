@@ -16,7 +16,10 @@ export class EmailValidationService {
     }
 
     isSpam(email : ValidateEmailRequest) : any{     
-        let response : ValidateEmailResponse;
+        let response : ValidateEmailResponse = {
+            text : "",
+            isSpam: false            
+        };
         
         let texto =  "necesito que me respondas si el siguiente mensaje es spam, la respuesta debe estar en un formato especifico, tiene que devolverme un JSON que tenga un parametro isSpam que sea verdadero si el mail es smap y falso si no lo es, luego una lista de razones, el email es:";
         texto += email.text;
